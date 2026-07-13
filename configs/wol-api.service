@@ -1,0 +1,23 @@
+[Unit]
+Description=WoL HTTP API for Tomori
+Documentation=https://github.com/Underiger/WOL-wake-desktop
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=wolapi
+Group=wolapi
+EnvironmentFile=/etc/wol-api.env
+ExecStart=/usr/bin/python3 /opt/wol/server.py
+Restart=on-failure
+RestartSec=5
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/opt/wol
+
+[Install]
+WantedBy=multi-user.target
