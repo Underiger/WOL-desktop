@@ -63,7 +63,8 @@ SD 卡重刷後可以幾分鐘內恢復到可用狀態。
 
 5. **記下 API token**
    腳本最後會印出 `WOL_TOKEN`（存在 `/etc/wol-api.env`，權限 600、只有 root 能讀）。
-   之後打 `/wake` 都要帶這個 token。
+   將這個 token 儲存到呼叫端（iOS 捷徑、shell script 等）即可，
+   呼叫端會自動帶入，日常使用不需手動輸入。
 
 ## 使用方式
 
